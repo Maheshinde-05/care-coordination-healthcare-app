@@ -81,14 +81,16 @@ export default {
         "focus-care":   "0 0 0 3px rgba(42,152,114,0.25)",
       },
       borderRadius: {
-        "xs":   "0.125rem",
-        DEFAULT:"0.375rem",
-        "md":   "0.5rem",
-        "lg":   "0.75rem",
-        "xl":   "1rem",
-        "2xl":  "1.25rem",
-        "3xl":  "1.5rem",
-        "4xl":  "2rem",
+        "none": "0",
+        "xs":   "0.0625rem", // 1px
+        "sm":   "0.125rem",  // 2px
+        DEFAULT:"0.25rem",   // 4px — base radius
+        "md":   "0.25rem",   // 4px
+        "lg":   "0.25rem",   // 4px
+        "xl":   "0.25rem",   // 4px
+        "2xl":  "0.25rem",   // 4px
+        "3xl":  "0.25rem",   // 4px
+        "full": "9999px",    // pill — intentional only
       },
       fontSize: {
         "2xs": ["0.625rem", { lineHeight: "1rem" }],

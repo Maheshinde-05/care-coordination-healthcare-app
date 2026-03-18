@@ -42,7 +42,7 @@
 @layer components {
   /* ── Buttons ── */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-md
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded
            transition-all duration-200 cursor-pointer select-none focus-visible:outline-none
            focus-visible:ring-2 focus-visible:ring-offset-1 disabled:opacity-40 disabled:pointer-events-none;
   }
@@ -67,21 +67,21 @@
     @apply btn bg-mw-danger text-white hover:bg-mw-danger-dark focus-visible:ring-mw-danger;
   }
   .btn-sm { @apply px-3 py-1.5 text-xs rounded; }
-  .btn-lg { @apply px-6 py-3 text-base rounded-lg; }
+  .btn-lg { @apply px-6 py-3 text-base rounded; }
   .btn-xs { @apply px-2.5 py-1 text-xs rounded; }
 
   /* ── Cards ── */
   .card {
-    @apply bg-white rounded-xl border border-mw-surface-border shadow-xs overflow-hidden;
+    @apply bg-white rounded border border-mw-surface-border shadow-xs overflow-hidden;
   }
   .card-elevated {
     @apply card shadow-md hover:shadow-lg transition-shadow duration-200;
   }
   .card-flat {
-    @apply bg-mw-surface-soft rounded-xl border border-mw-surface-border;
+    @apply bg-mw-surface-soft rounded border border-mw-surface-border;
   }
   .card-dark {
-    @apply bg-mw-ink-900 rounded-xl border border-mw-ink-800 text-white;
+    @apply bg-mw-ink-900 rounded border border-mw-ink-800 text-white;
   }
 
   /* ── Badges ── */
@@ -97,7 +97,7 @@
 
   /* ── Inputs ── */
   .input {
-    @apply w-full px-3 py-2 text-sm bg-white border border-mw-surface-border rounded-md
+    @apply w-full px-3 py-2 text-sm bg-white border border-mw-surface-border rounded
            text-mw-ink-900 placeholder:text-mw-ink-400
            focus:outline-none focus:ring-2 focus:ring-mw-primary-400 focus:border-transparent
            disabled:bg-mw-surface-muted disabled:text-mw-ink-400 disabled:cursor-not-allowed
@@ -111,7 +111,7 @@
     @apply h-screen bg-mw-ink-950 flex flex-col overflow-hidden flex-shrink-0;
   }
   .sidebar-item {
-    @apply flex items-center gap-2.5 px-3 py-2 text-sm text-mw-ink-300 rounded-md mx-2
+    @apply flex items-center gap-2.5 px-3 py-2 text-sm text-mw-ink-300 rounded mx-2
            hover:bg-mw-ink-800 hover:text-white transition-colors duration-150 cursor-pointer;
   }
   .sidebar-item-active {
@@ -121,15 +121,15 @@
   /* ── Chat bubbles ── */
   .chat-bubble-user {
     @apply max-w-[72%] ml-auto px-4 py-2.5 bg-mw-primary-600 text-white
-           rounded-2xl rounded-br-sm text-sm leading-relaxed;
+           rounded rounded-br-[2px] text-sm leading-relaxed;
   }
   .chat-bubble-ai {
     @apply max-w-[88%] px-4 py-3 bg-white border border-mw-surface-border
-           rounded-2xl rounded-bl-sm text-sm text-mw-ink-800 shadow-xs leading-relaxed;
+           rounded rounded-bl-[2px] text-sm text-mw-ink-800 shadow-xs leading-relaxed;
   }
   .chat-input-bar {
     @apply flex items-center gap-2 px-4 py-3 bg-white border border-mw-surface-border
-           rounded-2xl shadow-sm;
+           rounded shadow-sm;
   }
 
   /* ── Table ── */
@@ -152,7 +152,7 @@
 
   /* ── Icon container ── */
   .icon-container {
-    @apply w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0;
+    @apply w-9 h-9 rounded flex items-center justify-center flex-shrink-0;
   }
 
   /* ── Dividers ── */
