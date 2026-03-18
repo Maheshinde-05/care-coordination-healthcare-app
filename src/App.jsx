@@ -5,6 +5,7 @@ import { CoordinatorDashboard } from "./pages/coordinator/Dashboard";
 import { TaskQueue } from "./pages/coordinator/TaskQueue";
 import { CreateCarePlanTemplate } from "./pages/coordinator/CreateCarePlanTemplate";
 import { PatientApp } from "./pages/patient/PatientApp";
+import { DesignSystem } from "./pages/DesignSystem";
 
 function ModeSwitcher({ mode, onSwitch }) {
   return (
@@ -28,6 +29,15 @@ function ModeSwitcher({ mode, onSwitch }) {
       >
         Patient App
       </button>
+      <button
+        onClick={() => onSwitch("design-system")}
+        className={clsx(
+          "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all",
+          mode === "design-system" ? "bg-indigo-600 text-white" : "bg-cara-muted text-cara-textSub hover:bg-indigo-50 hover:text-indigo-700"
+        )}
+      >
+        Design System
+      </button>
     </div>
   );
 }
@@ -41,6 +51,15 @@ export default function App() {
     return (
       <>
         <PatientApp />
+        <ModeSwitcher mode={mode} onSwitch={(m) => { setMode(m); setActiveNav("dashboard"); }} />
+      </>
+    );
+  }
+
+  if (mode === "design-system") {
+    return (
+      <>
+        <DesignSystem />
         <ModeSwitcher mode={mode} onSwitch={(m) => { setMode(m); setActiveNav("dashboard"); }} />
       </>
     );

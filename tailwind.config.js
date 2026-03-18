@@ -6,8 +6,44 @@ export default {
       fontFamily: {
         sans:    ["'Sora'", "system-ui", "-apple-system", "sans-serif"],
         display: ["'Sora'", "system-ui", "-apple-system", "sans-serif"],
+        inter:   ["'Inter'", "system-ui", "-apple-system", "sans-serif"],
       },
       colors: {
+        // ── Quicken Design System ──────────────────────────────────────
+        qk: {
+          // Primary — Brand Indigo
+          primary:    "#4F46E5",
+          "primary-50":  "#EEF2FF",
+          "primary-200": "#C7D2FE",
+          "primary-400": "#818CF8",
+          "primary-600": "#4F46E5",
+          "primary-700": "#4338CA",
+          "primary-800": "#3730A3",
+          // Secondary — Blue
+          secondary:  "#60A5FA",
+          // Accent — Mint Green
+          accent:     "#86EFAC",
+          "accent-fg":"#166534",
+          // Semantic
+          success:    "#22C55E",
+          warning:    "#F59E0B",
+          destructive:"#EF4444",
+          // Surface
+          bg:         "#F5F6FA",
+          card:       "#FFFFFF",
+          border:     "#E5E7EB",
+          muted:      "#F3F4F6",
+          "muted-fg": "#6B7280",
+          fg:         "#111827",
+          // Sidebar
+          sidebar:    "#1C1C2E",
+          // Charts
+          "chart-purple": "#6366F1",
+          "chart-blue":   "#3B82F6",
+          "chart-green":  "#4ADE80",
+          "chart-teal":   "#2DD4BF",
+        },
+
         // ── Single teal accent (care) ──────────────────────────────────
         care: {
           50:  "#F0FAF6", 100: "#DCFAEE", 200: "#B8F0D8", 300: "#7FDDB6",
@@ -37,6 +73,7 @@ export default {
         "xl":          "0 20px 32px rgba(0,0,0,0.10), 0 8px 12px rgba(0,0,0,0.06)",
         "2xl":         "0 32px 48px rgba(0,0,0,0.12), 0 12px 20px rgba(0,0,0,0.08)",
         "focus-care":  "0 0 0 3px rgba(42,152,114,0.25)",
+        "focus-qk":   "0 0 0 3px rgba(79,70,229,0.25)",
       },
 
       borderRadius: {

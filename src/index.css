@@ -1,4 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Quicken Design System — CSS Custom Properties ─────────────────────── */
+:root {
+  /* Colors */
+  --qk-primary:        #4F46E5;
+  --qk-primary-50:     #EEF2FF;
+  --qk-primary-200:    #C7D2FE;
+  --qk-primary-400:    #818CF8;
+  --qk-primary-700:    #4338CA;
+  --qk-primary-800:    #3730A3;
+  --qk-secondary:      #60A5FA;
+  --qk-accent:         #86EFAC;
+  --qk-accent-fg:      #166534;
+  --qk-success:        #22C55E;
+  --qk-warning:        #F59E0B;
+  --qk-destructive:    #EF4444;
+  /* Surfaces */
+  --qk-bg:             #F5F6FA;
+  --qk-card:           #FFFFFF;
+  --qk-border:         #E5E7EB;
+  --qk-muted:          #F3F4F6;
+  --qk-muted-fg:       #6B7280;
+  --qk-fg:             #111827;
+  --qk-sidebar:        #1C1C2E;
+  --qk-sidebar-fg:     #FFFFFF;
+  /* Charts */
+  --qk-chart-purple:   #6366F1;
+  --qk-chart-blue:     #3B82F6;
+  --qk-chart-green:    #4ADE80;
+  --qk-chart-teal:     #2DD4BF;
+  /* Typography */
+  --qk-font:           'Inter', system-ui, -apple-system, sans-serif;
+  /* Spacing */
+  --qk-space-xs:       4px;
+  --qk-space-sm:       8px;
+  --qk-space-md:       16px;
+  --qk-space-lg:       24px;
+  --qk-space-xl:       32px;
+  --qk-space-2xl:      48px;
+  /* Radius */
+  --qk-radius-none:    0px;
+  --qk-radius-sm:      4px;
+  --qk-radius-m:       8px;
+  --qk-radius-lg:      12px;
+  --qk-radius-xl:      16px;
+  --qk-radius-pill:    100px;
+}
 
 @tailwind base;
 @tailwind components;
