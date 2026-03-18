@@ -123,10 +123,12 @@ function Colors() {
     { stop: "800", hex: "#3730A3", dark: true },
   ];
   const semantic = [
-    { name: "Success", token: "--qk-success · #22C55E", bg: "bg-qk-success", light: "bg-green-50", text: "text-green-800", Icon: Check },
-    { name: "Warning", token: "--qk-warning · #F59E0B", bg: "bg-qk-warning", light: "bg-amber-50", text: "text-amber-800", Icon: TriangleAlert },
-    { name: "Destructive", token: "--qk-destructive · #EF4444", bg: "bg-qk-destructive", light: "bg-red-50", text: "text-red-800", Icon: X },
-    { name: "Info", token: "--qk-primary · #4F46E5", bg: "bg-qk-primary", light: "bg-indigo-50", text: "text-indigo-800", Icon: Info },
+    // iconText: dark on bright bg (green #22C55E, amber #F59E0B fail WCAG with white)
+    // iconText: white on dark bg  (red #EF4444 ~3.75:1 OK for UI, indigo #4F46E5 ~6.3:1 passes AA)
+    { name: "Success",     token: "--qk-success · #22C55E",    bg: "bg-qk-success",     light: "bg-green-50",  text: "text-green-800",  iconText: "text-green-900",  Icon: Check },
+    { name: "Warning",     token: "--qk-warning · #F59E0B",    bg: "bg-qk-warning",     light: "bg-amber-50",  text: "text-amber-800",  iconText: "text-amber-900",  Icon: TriangleAlert },
+    { name: "Destructive", token: "--qk-destructive · #EF4444",bg: "bg-qk-destructive", light: "bg-red-50",    text: "text-red-800",    iconText: "text-white",      Icon: X },
+    { name: "Info",        token: "--qk-primary · #4F46E5",    bg: "bg-qk-primary",     light: "bg-indigo-50", text: "text-indigo-800", iconText: "text-white",      Icon: Info },
   ];
 
   return (
@@ -149,10 +151,10 @@ function Colors() {
       <div>
         <Label>Semantic Colors</Label>
         <div className="grid grid-cols-4 gap-4">
-          {semantic.map(({ name, token, bg, light, text, Icon }) => (
+          {semantic.map(({ name, token, bg, light, text, iconText, Icon }) => (
             <div key={name} className="rounded-xl overflow-hidden">
               <div className={`${bg} h-16 flex items-center justify-center`}>
-                <Icon size={22} className="text-white" />
+                <Icon size={22} className={iconText} />
               </div>
               <div className={`${light} px-3.5 py-2.5`}>
                 <p className={`text-xs font-semibold ${text}`}>{name}</p>
@@ -219,7 +221,7 @@ function QkButton({ variant = "primary", size = "md", children, className = "" }
   const base = "inline-flex items-center justify-center gap-2 font-semibold font-inter transition-all duration-150 cursor-pointer focus:outline-none";
   const variants = {
     primary:     "bg-qk-primary hover:bg-qk-primary-700 text-white shadow-sm",
-    secondary:   "bg-qk-secondary hover:opacity-90 text-white shadow-sm",
+    secondary:   "bg-qk-secondary hover:opacity-90 text-qk-fg shadow-sm",
     outline:     "bg-transparent border border-qk-border hover:bg-qk-muted text-qk-fg",
     ghost:       "bg-transparent hover:bg-qk-muted text-qk-muted-fg",
     destructive: "bg-qk-destructive hover:opacity-90 text-white shadow-sm",
@@ -235,7 +237,7 @@ function QkButton({ variant = "primary", size = "md", children, className = "" }
 function QkIconButton({ variant = "primary", Icon }) {
   const variants = {
     primary:     "bg-qk-primary hover:bg-qk-primary-700 text-white",
-    secondary:   "bg-qk-secondary hover:opacity-90 text-white",
+    secondary:   "bg-qk-secondary hover:opacity-90 text-qk-fg",
     outline:     "border border-qk-border hover:bg-qk-muted text-qk-fg",
     ghost:       "hover:bg-qk-muted text-qk-muted-fg",
     destructive: "bg-qk-destructive hover:opacity-90 text-white",
