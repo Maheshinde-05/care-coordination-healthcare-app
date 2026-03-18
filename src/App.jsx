@@ -1,0 +1,66 @@
+import { useState } from "react";
+import { clsx } from "clsx";
+import { CoordinatorLayout } from "./components/Layout";
+import { CoordinatorDashboard } from "./pages/coordinator/Dashboard";
+import { TaskQueue } from "./pages/coordinator/TaskQueue";
+import { CreateCarePlanTemplate } from "./pages/coordinator/CreateCarePlanTemplate";
+import { PatientApp } from "./pages/patient/PatientApp";
+
+function ModeSwitcher({ mode, onSwitch }) {
+  return (
+    <div className="fixed bottom-5 right-5 z-50 bg-cara-surface border border-cara-border rounded-2xl shadow-xl p-3 flex flex-col gap-2">
+      <p className="text-[9px] font-bold uppercase tracking-widest text-cara-textMute text-center px-1">Preview</p>
+      <button
+        onClick={() => onSwitch("coordinator")}
+        className={clsx(
+          "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all",
+          mode === "coordinator" ? "bg-care-500 text-white" : "bg-cara-muted text-cara-textSub hover:bg-care-50 hover:text-care-700"
+        )}
+      >
+        Coordinator
+      </button>
+      <button
+        onClick={() => onSwitch("patient")}
+        className={clsx(
+          "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all",
+          mode === "patient" ? "bg-care-500 text-white" : "bg-cara-muted text-cara-textSub hover:bg-care-100 hover:text-care-700"
+        )}
+      >
+        Patient App
+      </button>
+    </div>
+  );
+}
+
+export default function App() {
+  const [mode, setMode] = useState("coordinator");
+  const [activeNav, setActiveNav] = useState("dashboard");
+  const [creatingTemplate, setCreatingTemplate] = useState(false);
+
+  if (mode === "patient") {
+    return (
+      <>
+        <PatientApp />
+        <ModeSwitcher mode={mode} onSwitch={(m) => { setMode(m); setActiveNav("dashboard"); }} />
+      </>
+    );
+  }
+
+  let content;
+  if (creatingTemplate) {
+    content = <CreateCarePlanTemplate onBack={() => setCreatingTemplate(false)} onSave={() => setCreatingTemplate(false)} />;
+  } else if (activeNav === "tasks") {
+    content = <TaskQueue />;
+  } else {
+    content = <CoordinatorDashboard onCreateTemplate={() => setCreatingTemplate(true)} />;
+  }
+
+  return (
+    <>
+      <CoordinatorLayout activeNav={activeNav} onNavChange={(id) => { setActiveNav(id); }}>
+        {content}
+      </CoordinatorLayout>
+      <ModeSwitcher mode={mode} onSwitch={(m) => { setMode(m); setActiveNav("dashboard"); }} />
+    </>
+  );
+}
